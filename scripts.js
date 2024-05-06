@@ -1,3 +1,4 @@
+// Select all memory cards and the tries counter
 const cards = document.querySelectorAll('.memory-card');
 const triesCounter = document.querySelector('#tries-counter');
 
@@ -6,10 +7,12 @@ let lockBoard = false;
 let firstCard, secondCard;
 let tries = 0;
 
+// Update the tries counter
 function updateTriesCounter() {
   triesCounter.textContent = `Tries: ${tries}`;
 }
 
+// Flip the selected card
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
@@ -28,85 +31,68 @@ function flipCard() {
   checkForMatch();
 }
 
+// Check if the selected cards are a match
 function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-
   isMatch ? disableCards() : unflipCards();
 }
 
+// Disable click events for matched cards
 function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
 
+  checkGameCompletion();
   resetBoard();
 }
 
+// Check if all cards are flipped
+function checkGameCompletion() {
+  const allFlipped = [...cards].every(card => card.classList.contains('flip'));
+  if (allFlipped) {
+    const congratulationMessage = document.getElementById('congratulation-message');
+    congratulationMessage.style.display = 'block';
+  }
+}
+
+// Unflip the selected cards after a delay
 function unflipCards() {
   lockBoard = true;
-
   setTimeout(() => {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
-
     resetBoard();
   }, 1500);
 }
 
+// Reset the board variables
 function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
 }
 
-(function shuffle() {
+// Shuffle the memory cards
+function shuffle() {
   cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 12);
+    let randomPos = Math.floor(Math.random() * cards.length);
     card.style.order = randomPos;
   });
-})();
+}
 
-cards.forEach(card => card.addEventListener('click', flipCard));
-updateTriesCounter();
-
-function disableCards() {
-    firstCard.removeEventListener('click', flipCard);
-    secondCard.removeEventListener('click', flipCard);
-  
-    checkGameCompletion();
-    resetBoard();
-  }
-  
-  function checkGameCompletion() {
-    // Check if all cards have been matched
-    const allCards = document.querySelectorAll('.memory-card');
-    const allFlipped = [...allCards].every(card => card.classList.contains('flip'));
-  
-    if (allFlipped) {
-      // Show congratulation message
-      const congratulationMessage = document.getElementById('congratulation-message');
-      congratulationMessage.style.display = 'block';
-    }
-  }
-
-  // Function to reset the game
+// Reset the game
 function resetGame() {
-    // Remove 'flip' class from all cards
-    cards.forEach(card => card.classList.remove('flip'));
-    
-    // Reset the number of tries and update the counter
-    tries = 0;
-    updateTriesCounter();
-    
-    // Re-enable click events for all cards
-    cards.forEach(card => card.addEventListener('click', flipCard));
-    
-    // Hide the congratulation message
-    const congratulationMessage = document.getElementById('congratulation-message');
-    congratulationMessage.style.display = 'none';
-    
-    // Shuffle the cards
-    shuffle();
-  }
-  
-  // Add event listener to the restart button
-  const restartButton = document.getElementById('restart-btn');
-  restartButton.addEventListener('click', resetGame);
+  cards.forEach(card => card.classList.remove('flip'));
+  tries = 0;
+  updateTriesCounter();
+  cards.forEach(card => card.addEventListener('click', flipCard));
+  document.getElementById('congratulation-message').style.display = 'none';
+  shuffle();
+}
+
+// Add event listeners to cards and restart button
+cards.forEach(card => card.addEventListener('click', flipCard));
+document.getElementById('restart-btn').addEventListener('click', resetGame);
+
+// Shuffle cards initially and update tries counter
+shuffle();
+updateTriesCounter();
