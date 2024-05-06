@@ -95,29 +95,29 @@ body {
     color: #f838fe;
 }
 
-/* Style for the restart button */
+/* Center the restart button */
 #restart-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 16px;
-    font-family: 'Kranky', cursive;
-    color: #ffffff;
-    background-color: #3a8f92;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
+    display: block;           /* Makes the button take up the full width of its container */
+    margin: 20px auto;        /* Centers the button horizontally */
+    padding: 10px 20px;       /* Adds spacing inside the button */
+    font-size: 32px;          /* Sets the font size */
+    font-family: 'Kranky', cursive; /* Sets the font family */
+    color: #ffffff;           /* Sets the text color */
+    background-color: #49830292; /* Sets the background color */
+    border: none;             /* Removes the default border */
+    border-radius: 8px;       /* Rounds the corners */
+    cursor: pointer;          /* Changes the cursor to a pointer on hover */
+    transition: background-color 0.3s, transform 0.1s; /* Adds transition effects */
   }
   
   /* Button hover effect */
   #restart-btn:hover {
-    background-color: #317378;
-    transform: scale(1.05);
+    background-color: #447b01; /* Changes the background color on hover */
+    transform: scale(1.05);    /* Scales the button up slightly on hover */
   }
   
   /* Button click effect */
   #restart-btn:active {
-    transform: scale(0.95);
+    transform: scale(0.95);    /* Scales the button down on click */
   }
   
