@@ -86,3 +86,27 @@ function disableCards() {
       congratulationMessage.style.display = 'block';
     }
   }
+
+  // Function to reset the game
+function resetGame() {
+    // Remove 'flip' class from all cards
+    cards.forEach(card => card.classList.remove('flip'));
+    
+    // Reset the number of tries and update the counter
+    tries = 0;
+    updateTriesCounter();
+    
+    // Re-enable click events for all cards
+    cards.forEach(card => card.addEventListener('click', flipCard));
+    
+    // Hide the congratulation message
+    const congratulationMessage = document.getElementById('congratulation-message');
+    congratulationMessage.style.display = 'none';
+    
+    // Shuffle the cards
+    shuffle();
+  }
+  
+  // Add event listener to the restart button
+  const restartButton = document.getElementById('restart-btn');
+  restartButton.addEventListener('click', resetGame);
