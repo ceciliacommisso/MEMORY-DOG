@@ -50,6 +50,7 @@ body {
     transform: scale(1);
     transform-style: preserve-3d;
     transition: transform .5s;
+    cursor: pointer;   
     
     border-radius: 20px;
     background: #fcdefd;
@@ -132,4 +133,3 @@ body {
     transform: scale(0.95);    /* Scales the button down on click */
   }
   
-body, a, a:hover {cursor: url(http://profilki.pl/files/cur/88.png) 0 0, default}
