@@ -54,7 +54,16 @@ body {
     background: #fcdefd;
     box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
 }
-
+.memory-card:hover {
+    background-color: #f6d7f7; /* Changes the background color on hover */
+    transform: scale(1.05);    /* Scales the button up slightly on hover */
+  }
+  
+  /* Button click effect */
+  .rmemory-card:active {
+    transform: scale(0.95);    /* Scales the button down on click */
+  }
+  
 .memory-card:active {
     transform: scale(0.97);
     transition: transform .2s;
@@ -68,7 +77,7 @@ body {
 .back-face {
     width: 100%;
     height: 100%;
-    padding: 20px;
+
     position: absolute;
     border-radius: 5px;
 
@@ -78,6 +87,7 @@ body {
 
 .front-face {
     transform: rotateY(180deg);
+    border-radius: 20px;
 }
 
 @media (max-width: 1024px) {
