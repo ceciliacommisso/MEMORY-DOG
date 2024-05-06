@@ -7,6 +7,13 @@
       margin: 0;
       box-sizing: border-box;
     }
+
+    h1 {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
     
     body {
       height: 100vh;
