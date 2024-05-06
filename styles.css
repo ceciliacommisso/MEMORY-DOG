@@ -94,3 +94,30 @@ body {
     font-family: 'Kranky', sans-serif;
     color: #f838fe;
 }
+
+/* Style for the restart button */
+#restart-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    font-family: 'Kranky', cursive;
+    color: #ffffff;
+    background-color: #3a8f92;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+  }
+  
+  /* Button hover effect */
+  #restart-btn:hover {
+    background-color: #317378;
+    transform: scale(1.05);
+  }
+  
+  /* Button click effect */
+  #restart-btn:active {
+    transform: scale(0.95);
+  }
+  
