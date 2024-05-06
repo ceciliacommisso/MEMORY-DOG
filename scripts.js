@@ -66,3 +66,23 @@ function resetBoard() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 updateTriesCounter();
+
+function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+  
+    checkGameCompletion();
+    resetBoard();
+  }
+  
+  function checkGameCompletion() {
+    // Check if all cards have been matched
+    const allCards = document.querySelectorAll('.memory-card');
+    const allFlipped = [...allCards].every(card => card.classList.contains('flip'));
+  
+    if (allFlipped) {
+      // Show congratulation message
+      const congratulationMessage = document.getElementById('congratulation-message');
+      congratulationMessage.style.display = 'block';
+    }
+  }

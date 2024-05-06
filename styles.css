@@ -85,3 +85,12 @@ body {
         width: calc(33.33% - 40px);
     }
 }
+
+#congratulation-message {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 24px;
+    font-family: 'Kranky', sans-serif;
+    color: green;
+}
