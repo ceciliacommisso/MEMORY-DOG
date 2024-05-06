@@ -6,4 +6,5 @@ css Style anpassen
 Versuche count einfügen x
 backface ändern
 Titel
+scale fester vergössern/verkleiner anpassen
 Responsive machen
