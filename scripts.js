@@ -87,6 +87,7 @@ function shuffle() {
 
 // Setzt das Spiel zurück
 function resetGame() {
+  updateCardImages();
   cards.forEach(card => card.classList.remove('flip')); // Dreht alle Karten um
   tries = 0; // Setzen Sie die Versuche zurück
   updateTriesCounter(); // Aktualisieren Sie den Versuchs-Zähler
@@ -102,3 +103,34 @@ document.getElementById('restart-btn').addEventListener('click', resetGame);
 // Mischen Sie Karten zunächst und aktualisieren Sie den Versuchs-Zähler
 shuffle();
 updateTriesCounter();
+
+
+// Function to fetch a random image from the API
+async function fetchRandomImage(randomID) {
+  const response = await fetch(`https://placedog.net/500/${randomID}`);
+  return response.url;
+}
+
+// Function to update the images on all the memory cards
+async function updateCardImages() {
+  const cards = document.querySelectorAll('.memory-card .front-face');
+  const uniqueImages = [];
+  console.log(uniqueImages);
+  // Ensure we have 6 unique images for the 6 pairs
+  for (let i = 0; i < 6; i++) {
+    let randomID = Math.floor(Math.random() * 1000);
+    const imageUrl = await fetchRandomImage(randomID);
+    uniqueImages.push(imageUrl);
+  }
+  
+  console.log(uniqueImages);
+  // Assign images to cards, each image to two cards for the pairs
+  cards.forEach((card, index) => {
+    const imageIndex = Math.floor(index / 2);
+    card.src = uniqueImages[imageIndex];
+    card.alt = `Dog ${imageIndex + 1}`;
+  });
+}
+
+// Call the function to update the images on document load
+document.addEventListener('DOMContentLoaded', updateCardImages);
