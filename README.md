@@ -18,6 +18,7 @@ Zufällige Hunde-Bilder von placedog.net werden gezeigt. Spieler drehen Karten u
 - **index.html:** Spieloberfläche.
 - **styles.css:** Spielstile.
 - **scripts.js:** Spiel-Logik und Events.
+- **about.html** Über uns Seite
 
 ## Hinweise
 

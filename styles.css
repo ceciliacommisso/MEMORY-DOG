@@ -147,6 +147,20 @@ nav a {
     color: #498302;
     font-family: 'Kranky', cursive;
     font-size: 24px;
+    padding: 10px 20px;  /* Add padding for button-like appearance */
+    border-radius: 8px;  /* Round the corners */
+    transition: background-color 0.3s, transform 0.1s;  /* Add transitions */
+}
+
+/* Hover effect similar to the restart button */
+nav a:hover {
+    background-color: #fcdefd;  /* Background color on hover */
+    transform: scale(1.05);  /* Scale up slightly on hover */
+}
+
+/* Active effect similar to the restart button */
+nav a:active {
+    transform: scale(0.95);  /* Scale down slightly on click */
 }
 
 main {
