@@ -134,3 +134,63 @@ body {
     transform: scale(0.95);    /* Scales the button down on click */
   }
   
+  /* about us seite */
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #498302;
+    font-family: 'Kranky', cursive;
+    font-size: 24px;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+main img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-family: Kranky;
+    color: #498302;
+}
+
+.team-member {
+    margin: 20px 0;
+}
+
+.team-member img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.team-member h3 {
+    font-family: Kranky;
+    font-size: 36px;
+    color: #498302;
+    margin: 10px 0;
+}
+
+.team-member p {
+    font-family: Kranky;
+    font-size: 18px;
+    color: #333;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+  
